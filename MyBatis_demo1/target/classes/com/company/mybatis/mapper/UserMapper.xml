@@ -24,7 +24,7 @@
         select * from t_user where id = 3;
     </select>
     <!--List<User> getAllUser();-->
-    <select id="getAllUser" resultType="com.company.mybatis.pojo.User">
+    <select id="getAllUser" resultType="User">
         select * from t_user
     </select>
 </mapper>
