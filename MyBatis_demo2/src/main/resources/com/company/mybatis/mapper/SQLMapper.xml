@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mybatis.mapper.SQLMapper">
+    <!--List<User> getUserByLike(@Param("username") String username);-->
+    <!--select * from t_user where username like '%${username}%'-->
+    <!--select * from t_user where username like concat('%',#{username},'%')-->
+    <select id="getUserByLike" resultType="User">
+        select * from t_user where username like "%"#{username}"%"
+    </select>
+    <!--int deleteMore(@Param("ids") String ids);-->
+    <delete id="deleteMore">
+        delete from t_user where id in (${ids})
+    </delete>
+    <!--List<User> getUserByTable(@Param("tableName") String tableName);-->
+    <select id="getUserByTable" resultType="user">
+        select * from ${tableName}
+    </select>
+    <!--int insertUser(User user);-->
+    <!--useGeneratedKeys：设置使用自增的主键-->
+    <!--keyProperty：因为增删改有统一的返回值是受影响的行数，因此只能将获取的自增的主键放在传输的参数user对象的某个属性中-->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user values (null,#{username},#{password},#{age},#{sex},#{email})
+    </insert>
+</mapper>
