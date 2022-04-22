@@ -1,5 +1,7 @@
 package com.company.mybatis.pojo;
 
+import java.io.Serializable;
+
 /**
  * @Author wlb10
  * @PackageName MyBatis
@@ -7,7 +9,7 @@ package com.company.mybatis.pojo;
  * @Date 2022/4/21 16:16
  * @Version 1.0
  */
-public class Emp {
+public class Emp implements Serializable {  //实现序列化的接口
     private Integer eid;
     private String empName;
     private Integer age;
