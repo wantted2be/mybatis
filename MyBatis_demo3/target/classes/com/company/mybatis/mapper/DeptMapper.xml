@@ -30,4 +30,15 @@
         select * from t_dept left join t_emp on t_dept.did = t_emp.did where t_dept.did = #{id}
     </select>
 
+    <resultMap id="DeptAndEmpByStepOneResultMap" type="Dept">
+        <id property="did" column="did"></id>
+        <result property="deptName" column="dept_name"></result>
+        <collection property="empList"
+                    select=""
+                    column="did"></collection>
+    </resultMap>
+    <!--Dept getDeptAndEmpByStepOne(@Param("did") Integer did);-->
+    <select id="getDeptAndEmpByStepOne" resultMap="DeptAndEmpByStepOneResultMap">
+        select * from t_dept where did = #{did}
+    </select>
 </mapper>
