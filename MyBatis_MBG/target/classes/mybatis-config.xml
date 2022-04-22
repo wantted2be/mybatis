@@ -18,6 +18,11 @@
         <!--以包为单位设置类型别名，使用的是默认的别名-->
         <package name="com.company.mybatis.pojo"/>
     </typeAliases>
+    
+    <plugins>
+        <!--设置分页插件-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
 
     <!--配置多个连接数据库的环境
         default：设置默认使用的环境的id-->
